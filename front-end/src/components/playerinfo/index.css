@@ -2,6 +2,9 @@
     display: grid;
     
     grid-template-columns: 1fr;
-    grid-area: 1/1;
-    
+    grid-area: 2/3;
+    border: solid salmon;
+    background-image: url(https://thumbs.dreamstime.com/b/d-rendering-atm-machine-dollars-falling-out-diagram-lined-blue-background-management-finance-money-risks-savings-166412056.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
   }

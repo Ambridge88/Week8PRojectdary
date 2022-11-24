@@ -1,0 +1,8 @@
+.title{display:grid;
+    grid-template-rows: 1fr ;
+    
+grid-area: 1/2;
+text-align: center;}
+
+
+
