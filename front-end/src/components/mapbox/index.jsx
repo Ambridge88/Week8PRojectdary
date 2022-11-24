@@ -21,5 +21,14 @@ export default function Mapbox() {
         });
     });
 
+    const geojson = {
+        type: 'FeatureCollection', 
+        features: []
+    }
+
+    const apiGet = async() => {
+        await fetch('/atms').then((response) => response.json()).then((data) =>{console.log(data)})
+    }
+
     return <section ref={mapContainer} className="mapBox"></section>;
 }
