@@ -1,3 +1,14 @@
-.ruleBox h1{
-    color: blue;
+.rulebox{display: grid;
+color: white;
+    grid-template-columns: 1fr ;
+   
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    grid-area: 2/1;
+    border: solid salmon;
+    background-image: url(https://wallpaperaccess.com/full/2773472.jpg);
+    background-size:contain;
+  
 }

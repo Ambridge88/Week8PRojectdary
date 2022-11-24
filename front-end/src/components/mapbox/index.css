@@ -1,0 +1,7 @@
+.mapBox{display: grid;
+grid-area: 2/2;
+height: 600px;
+overflow: hidden;
+border: solid salmon;
+background-repeat: none;
+}
