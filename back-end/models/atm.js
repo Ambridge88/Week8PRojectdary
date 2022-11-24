@@ -14,7 +14,16 @@ class ATM extends Model { }
             type:DataTypes.INTEGER
         },
         copper: {
-            type:DataTypes.BOOLEAN
+            type:DataTypes.BOOLEAN,
+            defaultValue: () => {
+                const rollTheDice = Math.random()
+                if (rollTheDice >= 0.7) {
+                    return true
+                }
+                else{
+                    return false
+                }
+            }
         }
     }, {sequelize: db} )
 

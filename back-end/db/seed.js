@@ -27,8 +27,7 @@ const seed = async () => {
             await Atm.create({
                 latitude: atmLatitude,
                 longitude: atmLongitude,
-                cash: 0,
-                copper: false 
+                cash: (Math.floor(Math.random() * 100) + 1)*10,
             })
         }
 
