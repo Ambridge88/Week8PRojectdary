@@ -7,12 +7,14 @@ function App() {
   return (
 
     <section className="App">
-      
       <Title/>
+      <section className='main'>
      <Mapbox/>
      <Rulebox/>
      <Playerinfo/>
+     </section>
     </section>
+    
   );
 }
 

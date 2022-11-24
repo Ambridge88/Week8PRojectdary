@@ -1,8 +1,11 @@
 import './index.css'
+import image from './image2.png'
 
 export default function Playerinfo(){
     return(<section className='playerinfo' >
-    <h2>Player Info</h2>
+    <figure>
+            <img src = {image} alt="" srcset="" />
+            </figure>
    
     </section>)
 }
