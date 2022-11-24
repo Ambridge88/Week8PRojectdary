@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const atmRouter = Router()
-const Atm  = require('../models/atm')
+const {Atm}  = require('../models')
 
 
 atmRouter.get("/", async (req,res) => {

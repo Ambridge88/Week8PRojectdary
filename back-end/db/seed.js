@@ -1,6 +1,4 @@
-const Atm = require('../models/atm')
-const Copper = require('../models/copper')
-const Robber = require('../models/robber')
+const { Atm, Copper, Robber} = require('../models')
 const db = require('./db')
 
 const fetchSettings = { 
@@ -26,7 +24,7 @@ const seed = async () => {
             const location = await data.data[0].Brand[0].ATM[i].Location.PostalAddress.GeoLocation.GeographicCoordinates
             const atmLatitude = location.Latitude
             const atmLongitude = location.Longitude
-            Atm.create({
+            await Atm.create({
                 latitude: atmLatitude,
                 longitude: atmLongitude,
                 cash: 0,
@@ -35,13 +33,35 @@ const seed = async () => {
         }
 
     await Copper.bulkCreate([
-
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+        },
     ])
 
     await Robber.bulkCreate([
-
+        {
+            cash: 0
+        }
     ])
 }
-seed()
 
 module.exports = seed
