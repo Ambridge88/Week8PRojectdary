@@ -4,8 +4,11 @@ const db = require(`../db/db`)
 class ATM extends Model { }
     
     ATM.init({
-        location: {
-            type:DataTypes.STRING
+        longitude: {
+            type:DataTypes.INTEGER
+        },
+        latitude: {
+            type:DataTypes.INTEGER
         },
         cash: {
             type:DataTypes.INTEGER

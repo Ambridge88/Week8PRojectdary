@@ -11,4 +11,4 @@ class Copper extends Model { }
 
 
 
-  module.exports = {Copper}
+  module.exports = Copper
