@@ -1,13 +1,18 @@
 import './App.css';
 import Mapbox from './components/mapbox';
+import Playerinfo from './components/playerinfo';
 import Rulebox from './components/rulebox';
-
+import Title from './components/title';
 function App() {
   return (
-    <div className="App">
+
+    <section className="App">
+      
+      <Title/>
      <Mapbox/>
      <Rulebox/>
-    </div>
+     <Playerinfo/>
+    </section>
   );
 }
 

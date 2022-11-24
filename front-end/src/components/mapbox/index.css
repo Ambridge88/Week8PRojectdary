@@ -1,0 +1,4 @@
+.mapBox{display: grid;
+    height: 600px;
+grid-area: 1/2;
+}
