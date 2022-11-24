@@ -1,0 +1,9 @@
+.rulebox{display: grid;
+
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 1fr 1fr ;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 10px;
+    grid-area: 1/3;
+}
