@@ -1,5 +1,6 @@
 .rulebox{display: grid;
 color: white;
+ 
     grid-template-columns: 1fr ;
    
     width: 100%;

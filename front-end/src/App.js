@@ -12,7 +12,9 @@ function App() {
      <Mapbox/>
      <Rulebox/>
      <Playerinfo/>
+     
      </section>
+     
     </section>
     
   );
