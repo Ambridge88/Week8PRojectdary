@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const copperRouter = Router()
-const {Copper}  = require('../models')
+const {Copper, Robber}  = require('../models')
 
 
 copperRouter.get("/", async (req,res) => {
@@ -19,6 +19,18 @@ copperRouter.get("/:id", async (req,res) => {
     console.log("fetching specific copper");
     const fetchCopper = await Copper.findByPk(req.params.id);
     res.status(200).send(fetchCopper)
+    }
+    catch (error) {
+        res.send(error)
+    }
+})
+
+copperRouter.put("/:id/nicked", async (req,res) => {
+    try {
+    console.log("you're nicked!");
+    const robber = await Robber.findByPk(1)
+    const nicked = await robber.update({cash: 0})
+    res.send(nicked)
     }
     catch (error) {
         res.send(error)
