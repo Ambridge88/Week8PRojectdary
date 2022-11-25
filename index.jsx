@@ -31,7 +31,6 @@ export default function Mapbox() {
                 .then((response) => response.json())
                 .then((data) => {
                     for (let i = 0; i < data.length; i++) {
-                        
                         const lng = data[i].longitude;
                         const lat = data[i].latitude;
                         geojson.features.push({
@@ -41,8 +40,8 @@ export default function Mapbox() {
                                 coordinates: [lng, lat],
                             },
                             properties: {
-                                title: `Cash machine ID: ${data[i].id}`,
-                                description: `Cash: £${data[i].cash}`,
+                                title: "Mapbox",
+                                description: "N/A",
                             },
                         });
                     }
@@ -52,7 +51,7 @@ export default function Mapbox() {
         fetcher().then(() => {for(let feature of geojson.features){
 
                 let newMarker = <div className="marker"></div>;
-                new mapboxgl.Marker(newMarker).setLngLat(feature.geometry.coordinates).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`)).addTo(map.current);
+                new mapboxgl.Marker(newMarker).setLngLat(feature.geometry.coordinates).addTo(map.current);
     }})
     },[map])
 
