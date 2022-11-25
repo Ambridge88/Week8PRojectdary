@@ -4,7 +4,7 @@
     grid-template-columns: 1fr;
     grid-area: 2/3;
     border: solid salmon;
-    background-image: url(https://cdn.xxl.thumbs.canstockphoto.com/thief-or-burglar-stealing-money-from-atm-man-in-the-mask-with-money-criminal-character-isolated-vector-clipart_csp63311601.jpg);
+    background-image: url("../../components/imgs/player-info.png");
     background-size:cover;
     background-repeat: no-repeat;
    
