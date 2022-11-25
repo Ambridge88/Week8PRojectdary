@@ -1,7 +1,18 @@
-.mapBox{display: grid;
-grid-area: 2/2;
-height: 600px;
-overflow: hidden;
-border: solid salmon;
-background-repeat: none;
+.mapBox {
+    display: grid;
+    grid-area: 2/2;
+    height: 600px;
+    overflow: hidden;
+    border: solid salmon;
+    background-repeat: none;
+}
+
+.mapboxgl-marker {
+    position: absolute;
+    background-image: url("../imgs/atm-logo.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
 }
