@@ -16,3 +16,11 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
+.mapboxgl-popup-content {
+    position: absolute;
+    background-image: url(../imgs/ATM.png);
+    height: 40vh;
+    width: 30vw;
+    background-size: cover;
+  }

@@ -1,29 +1,17 @@
-import mapboxgl from "mapbox-gl";
+import ReactMapBoxGl, { Layer, Feature } from "react-mapbox-gl";
 import "./index.css";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 export default function Mapbox() {
-    mapboxgl.accessToken =
-        "pk.eyJ1IjoiYXNobGV5LXNoYXciLCJhIjoiY2xha3dkdHgxMDN6bTNwc3o2ZXFlN20waiJ9.VuJuoTPAMUl1nTL-7S79UA";
-
-    const mapContainer = useRef(null);
-    const map = useRef(null);
-    const [lng, setLng] = useState(-1);
-    const [lat, setLat] = useState(51);
-    const [zoom, setZoom] = useState(9);
-
-    useEffect(() => {
-        if (map.current) return;
-        map.current = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: "mapbox://styles/mapbox/streets-v12",
-            center: [lng, lat],
-            zoom: zoom,
-        });
+    const Map = ReactMapBoxGl({
+        accessToken:
+            "pk.eyJ1IjoiYXNobGV5LXNoYXciLCJhIjoiY2xha3dkdHgxMDN6bTNwc3o2ZXFlN20waiJ9.VuJuoTPAMUl1nTL-7S79UA",
     });
 
-    useEffect(()=> {
-        if(!map){
+    const geojson = [];
+
+    useEffect(() => {
+        if (!Map) {
             return;
         }
         const fetcher = async () => {
@@ -31,37 +19,35 @@ export default function Mapbox() {
                 .then((response) => response.json())
                 .then((data) => {
                     for (let i = 0; i < data.length; i++) {
-                        
                         const lng = data[i].longitude;
                         const lat = data[i].latitude;
-                        geojson.features.push({
-                            type: "feature",
-                            geometry: {
-                                type: "Point",
-                                coordinates: [lng, lat],
-                            },
-                            properties: {
-                                title: `Cash machine ID: ${data[i].id}`,
-                                description: `Cash: £${data[i].cash}`,
-                            },
-                        });
+                        geojson.push([lng, lat]);
                     }
                 });
         };
-    
-        fetcher().then(() => {for(let feature of geojson.features){
+        fetcher();
+    });
+    const markers = geojson.map((coordinates) => (
+        <Feature coordinates={coordinates} />
+    ));
 
-                let newMarker = <div className="marker"></div>;
-                new mapboxgl.Marker(newMarker).setLngLat(feature.geometry.coordinates).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`)).addTo(map.current);
-    }})
-    },[map])
-
-    const geojson = {
-        type: "FeatureCollection",
-        features: [],
-    };
-
-
-
-    return <section ref={mapContainer} className="mapBox"></section>;
+    return (
+        <Map
+            className="mapBox"
+            intialViewState={{
+                longitude: -1,
+                latitude: 51,
+                zoom: 9,
+            }}
+            style="mapbox://styles/mapbox/streets-v8"
+        >
+            <Layer
+                type="symbol"
+                id="marker"
+                layout={{ "icon-image": "marker-15" }}
+            >
+                <Feature coordinates={[-1, 51]} />
+            </Layer>
+        </Map>
+    );
 }
