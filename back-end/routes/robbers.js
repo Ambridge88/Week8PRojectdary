@@ -25,4 +25,17 @@ robberRouter.get("/:id", async (req,res) => {
     }
 })
 
+robberRouter.get("/:id/cash", async (req,res) => {
+    try {
+    console.log("show Robber Balance");
+    const showBalance = await Robber.findByPk(req.params.id);
+    const cash = await showBalance.cash
+    console.log(cash)
+    res.send(`${cash}`)
+    }
+    catch (error) {
+        res.send(error)
+    }
+})
+
 module.exports = robberRouter

@@ -26,11 +26,13 @@ atmRouter.get("/:id", async (req,res) => {
     }
 })
 
-atmRouter.get("/:id/:cash", async (req,res) => {
+atmRouter.get("/:id/cash", async (req,res) => {
     try {
     console.log("fetching specific ATM cash value");
-    const showBalance = await Atm.findByPk(req.params.cash);
-    res.status(200).send(showBalance)
+    const showBalance = await Atm.findByPk(req.params.id)
+    const cash = showBalance.cash
+    console.log(cash)
+    res.send(`${cash}`)
     }
     catch (error) {
         res.send(error)
